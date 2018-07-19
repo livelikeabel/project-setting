@@ -1,0 +1,22 @@
+{
+  "name": "plain-project",
+  "description": "make plain project!",
+  "scripts": {
+    "start": "run-p babel:watch copy:watch browser",
+    "build": "run-s babel copy",
+
+    "babel": "babel src/ --out-dir dist",
+    "babel:watch": "npm run babel -- -w",
+    "copy": "cpx 'src/**/*.{html, css}' dist/ ",
+    "copy:watch": "npm run copy -- -w",
+    "browser": "browser-sync dist/ -w"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "browser-sync": "^2.24.5",
+    "cpx": "^1.5.0",
+    "cpy-cli": "^2.0.0",
+    "npm-run-all": "^4.1.3",
+    "serve": "^9.2.0"
+  }
+}
